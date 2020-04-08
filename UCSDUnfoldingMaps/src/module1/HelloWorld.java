@@ -1,6 +1,7 @@
 package module1;
 
 import de.fhpotsdam.unfolding.providers.*;
+import mystuff.Yandex;
 import processing.core.PApplet;
 import de.fhpotsdam.unfolding.UnfoldingMap;
 import de.fhpotsdam.unfolding.geo.Location;
@@ -45,9 +46,10 @@ public class HelloWorld extends PApplet
 
 		// Select a map provider
 		//AbstractMapProvider provider = new Google.GoogleTerrainProvider();
-		AbstractMapProvider provider = new OpenStreetMap.OpenStreetMapProvider();
+		//AbstractMapProvider provider = new OpenStreetMap.OpenStreetMapProvider();
+		AbstractMapProvider provider = new Yandex.SimpleYandexProvider();
 		// Set a zoom level
-		int zoomLevel = 10;
+		int zoomLevel = 3;
 
 		if (offline) {
 			// If you are working offline, you need to use this provider
