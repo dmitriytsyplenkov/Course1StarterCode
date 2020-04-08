@@ -46,8 +46,8 @@ public class HelloWorld extends PApplet
 
 		// Select a map provider
 		//AbstractMapProvider provider = new Google.GoogleTerrainProvider();
-//		AbstractMapProvider provider = new OpenStreetMap.OpenStreetMapProvider();
-		AbstractMapProvider provider = new Yandex.SimpleYandexProvider();
+		AbstractMapProvider provider = new OpenStreetMap.OpenStreetMapProvider();
+		//AbstractMapProvider provider = new Yandex.SimpleYandexProvider();
 		// Set a zoom level
 		int zoomLevel = 7;
 
