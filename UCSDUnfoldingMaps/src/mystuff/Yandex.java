@@ -23,7 +23,8 @@ public class Yandex {
         }
 
         public String[] getTileUrls(Coordinate var1) {
-            String var2 = "https://static-maps.yandex.ru/1.x/?ll=" + var1.column + "," + var1.row  + "&z=" + (int)var1.zoom + "&l=map";
+            //String var2 = "https://static-maps.yandex.ru/1.x/?ll=" + (int)var1.column + "," + (int)var1.row  + "&z=" + (int)var1.zoom + "&l=map&size=620,420";
+            String var2 = "https://yandex.ru/maps/?ll=" + (int)var1.column + "," + (int)var1.row  + "&z=" + (int)var1.zoom ;
             System.out.println(var2);
             return new String[]{var2};
 
