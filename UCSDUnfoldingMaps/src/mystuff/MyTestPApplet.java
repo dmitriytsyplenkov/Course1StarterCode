@@ -10,7 +10,7 @@ public class MyTestPApplet extends PApplet {
     @Override
     public void setup() {
         size(200,200);
-        img = loadImage("C:\\Users\\Олдридж\\IdeaProjects\\Course1StarterCode\\UCSDUnfoldingMaps\\data\\palmTrees.jpg");
+        img = loadImage("palmTrees.jpg");
     }
 
     @Override
