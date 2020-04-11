@@ -33,7 +33,7 @@ public class MyTestCoronaVirus extends PApplet {
         countries = GeoJSONReader.loadData(this, "countries.geo.json");
         countryMarkers = MapUtils.createSimpleMarkers(countries);
         map.addMarkers(countryMarkers);
-        map.zoomToLevel(3);
+        map.zoomToLevel(1);
         shadeMarkers();
     }
 
