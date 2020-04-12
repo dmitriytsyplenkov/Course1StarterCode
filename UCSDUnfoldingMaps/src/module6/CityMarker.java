@@ -68,6 +68,7 @@ public class CityMarker extends CommonMarker {
 		pg.text(pop, x+3, y - TRI_SIZE -18);
 		
 		pg.popStyle();
+
 	}
 	
 	private String getCity()
