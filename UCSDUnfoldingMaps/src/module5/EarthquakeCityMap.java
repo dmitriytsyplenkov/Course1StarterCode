@@ -129,13 +129,13 @@ public class EarthquakeCityMap extends PApplet {
 		map.draw();
         addKey();
 		for (Marker marker : map.getMarkers()) {
-			if (marker.isSelected()&&(boolean)marker.getProperty("redrawHint")){
-				fill(255, 255, 240);
-				rect((Float)marker.getProperty("hintX"), (Float)marker.getProperty("hintY"),(Float)marker.getProperty("hintWidth"), (Float)marker.getProperty("hintHeight"));
-				fill(0);
-				textAlign(LEFT, TOP);
-				text((String)marker.getProperty("hintText"),(Float)marker.getProperty("hintX")+5,(Float)marker.getProperty("hintY"));
-			}
+            if (marker.isSelected() && !marker.isHidden() && (boolean) marker.getProperty("redrawHint")) {
+                fill(255, 255, 240);
+                rect((Float) marker.getProperty("hintX"), (Float) marker.getProperty("hintY"), (Float) marker.getProperty("hintWidth"), (Float) marker.getProperty("hintHeight"));
+                fill(0);
+                textAlign(LEFT, TOP);
+                text((String) marker.getProperty("hintText"), (Float) marker.getProperty("hintX") + 5, (Float) marker.getProperty("hintY"));
+            }
 		}
 	}
 

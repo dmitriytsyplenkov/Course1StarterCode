@@ -53,7 +53,7 @@ public class CityMarker extends CommonMarker {
 	{
 
 		// TODO: Implement this method
-		if (isSelected()) {
+//		if (isSelected()) {
 			String ctTitle = getCity() + ", " + getCountry() + "\nPop:" + getPopulation() + " Million";
 			float widthOfTitle = pg.textWidth(ctTitle);
 			setProperty("redrawHint", true);
@@ -62,9 +62,9 @@ public class CityMarker extends CommonMarker {
 			setProperty("hintY",y - 8 * TRI_SIZE+50);
 			setProperty("hintWidth",widthOfTitle+10);
 			setProperty("hintHeight",35f);
-		} else {
-			setProperty("redrawHint", false);
-		}
+//		} else {
+//			setProperty("redrawHint", false);
+//		}
 	}
 	
 	
