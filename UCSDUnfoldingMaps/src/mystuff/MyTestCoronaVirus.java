@@ -48,8 +48,7 @@ public class MyTestCoronaVirus extends PApplet {
             if (countryMarker.isInside(map, mouseX, mouseY) && lastSelected == null) {
                 lastSelected = countryMarker;
                 countryMarker.setSelected(true);
-            } else {
-                countryMarker.setSelected(false);
+                return;
             }
         }
     }
@@ -57,7 +56,6 @@ public class MyTestCoronaVirus extends PApplet {
     private void shadeMarkers() {
         for (Marker marker : countryMarkers) {
             String countryId = (String) marker.getProperty("name");
-            //System.out.println(countryId);
             if (countryId.equals("Russia")) {
                 countryId = "Russian Federation";
             }
@@ -69,14 +67,11 @@ public class MyTestCoronaVirus extends PApplet {
                 }
                 int colorLevel = (int) map(log(coronaConfirmed), 0, log(topIncedentsInSingleCountry), 10, 255);
                 marker.setColor(color(colorLevel, 100, 255 - colorLevel));
-
             } else {
                 marker.setColor(color(10, 100, 245));
                 marker.setProperty("amountOfInc", 0);
             }
-
         }
-        //System.out.println(topIncedentsInSingleCountry);
     }
 
     private Map<String, Integer> parseCorona(String URL) {
@@ -88,8 +83,6 @@ public class MyTestCoronaVirus extends PApplet {
                 JSONObject country = countries.getJSONObject(i);
                 int confirmed = country.getInt("TotalConfirmed");
                 coronaMap.put(country.getString("Country"), confirmed);
-
-                //System.out.println(country.getString("Country")+" "+ country.getInt("TotalConfirmed"));
                 if (confirmed > topIncedentsInSingleCountry)
                     topIncedentsInSingleCountry = confirmed;
             }

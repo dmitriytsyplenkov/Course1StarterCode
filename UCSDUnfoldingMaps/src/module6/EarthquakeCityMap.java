@@ -1,9 +1,8 @@
 package module6;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
+import com.sun.corba.se.spi.ior.ObjectKey;
 import de.fhpotsdam.unfolding.UnfoldingMap;
 import de.fhpotsdam.unfolding.data.Feature;
 import de.fhpotsdam.unfolding.data.GeoJSONReader;
@@ -49,7 +48,7 @@ public class EarthquakeCityMap extends PApplet {
 	// The files containing city names and info and country names and info
 	private String cityFile = "city-data.json";
 	private String countryFile = "countries.geo.json";
-	
+	public static final int NUM_TO_PRINT = 20;
 	// The map
 	private UnfoldingMap map;
 	
@@ -75,7 +74,7 @@ public class EarthquakeCityMap extends PApplet {
 		else {
 			map = new UnfoldingMap(this, 200, 50, 650, 600, new Google.GoogleMapProvider());
 			// IF YOU WANT TO TEST WITH A LOCAL FILE, uncomment the next line
-		    //earthquakesURL = "2.5_week.atom";
+		    earthquakesURL = "test2.atom";
 		}
 		MapUtils.createDefaultEventDispatcher(this, map);
 		
@@ -117,6 +116,7 @@ public class EarthquakeCityMap extends PApplet {
 
 	    // could be used for debugging
 	    printQuakes();
+	    sortAndPrint(NUM_TO_PRINT);
 	 		
 	    // (3) Add markers to map
 	    //     NOTE: Country markers are not added to the map.  They are used
@@ -126,8 +126,16 @@ public class EarthquakeCityMap extends PApplet {
 	    
 	    
 	}  // End setup
-	
-	
+
+	private void sortAndPrint(int numToPrint) {
+		Object[] arr = quakeMarkers.toArray();
+		Arrays.sort(arr);
+		for (int i = 0; i < Math.min(arr.length,numToPrint); i++) {
+			System.out.println(arr[i]);
+		}
+	}
+
+
 	public void draw() {
 		background(0);
 		map.draw();
